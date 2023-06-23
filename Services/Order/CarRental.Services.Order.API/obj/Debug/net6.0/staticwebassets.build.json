@@ -1,0 +1,23 @@
+{
+  "Version": 1,
+  "Hash": "UI1FBbJdhNuVHaZO0NLKGih5MrC9tw94z2OMDUemWAU=",
+  "Source": "CarRental.Services.Order",
+  "BasePath": "_content/CarRental.Services.Order",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\batur\\source\\repos\\CarRentalMicroservices\\Services\\Catalog\\CarRental.Services.Catalog\\CarRental.Services.Catalog.csproj",
+      "Version": 2,
+      "Source": "CarRental.Services.Catalog",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework;RuntimeIdentifier"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

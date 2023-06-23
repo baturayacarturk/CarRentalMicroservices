@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewData["Title"] = "FrontSignUp";
+}
+
+@model UserSignupModel
+
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Kayıt ol</h4>
+
+                <form asp-controller="Authentication" asp-action="SignUp">
+                    <div class="mb-3">
+                        <label asp-for="UserName" class="form-label">İsim ve Soyisim giriniz</label>
+                        <input type="text" asp-for="UserName" class="form-control" aria-describedby="nameHelp">
+                        <span class="text-danger" asp-validation-for="UserName"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Email" class="form-label">Email giriniz</label>
+                        <input type="email" asp-for="Email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <span class="text-danger" asp-validation-for="Email"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Password" class="form-label">Şifre giriniz</label>
+                        <input type="password" asp-for="Password" class="form-control" id="exampleInputPassword1">
+                        <span class="text-danger" asp-validation-for="Password"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="City" class="form-label">Şehir giriniz</label>
+                        <input type="text" asp-for="City" class="form-control">
+                        <span class="text-danger" asp-validation-for="City"></span>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Kayıt ol</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

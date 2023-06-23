@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Update";
+}
+@model CarUpdate
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Araba güncelleme </h5>
+
+                <form asp-controller="Cars" asp-action="Update" method="post" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="UserId" />
+                    <input type="hidden" asp-for="Picture" />
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label" asp-for="CategoryId"></label>
+                        <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.categoryList">
+                        </select>
+
+                        <span class="text-danger" asp-validation-for="CategoryId"></span>
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">Araba Adı</label>
+                            <input asp-for="Name" class="form-control">
+                            <span class="text-danger" asp-validation-for="Name"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Price" class="form-label">Fiyat</label>
+                            <input asp-for="Price" class="form-control">
+                            <span class="text-danger" asp-validation-for="Price"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">Açıklama</label>
+                            <textarea asp-for="Description" class="form-control"></textarea>
+                            <span class="text-danger" asp-validation-for="Description"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Feature.Duration" class="form-label">İlan süresi</label>
+                            <input asp-for="Feature.Duration" class="form-control"></input>
+                            <span class="text-danger" asp-validation-for="Feature.Duration"></span>
+
+                        <div class="mb-3">
+                            <label asp-for="Location" class="form-label">Şehir</label>
+                            <select asp-for="Location" class="form-control">
+                                <option value="">Şehir Seçiniz</option>
+                                <option value="İstanbul">İstanbul</option>
+                                <option value="Ankara">Ankara</option>
+                                <option value="İzmir">İzmir</option>
+                            </select>
+                            <span class="text-danger" asp-validation-for="Location"></span>
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label asp-for="PhotoFormFile" class="form-label">Fotoğraf</label>
+
+                            <input type="file" asp-for="PhotoFormFile" class="form-control" />
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-check-label">
+                                <input type="checkbox" asp-for="IsPassive" class="form-check-input" />
+                                Kiralık durumu
+                            </label>
+                            <span class="text-danger" asp-validation-for="IsPassive"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

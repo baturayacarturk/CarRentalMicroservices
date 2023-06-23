@@ -1,0 +1,70 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    
+}
+@model List<CarViewModel>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">İlanda olmayan araçlar</h5>
+                <a asp-controller="Cars" asp-action="GetCarsBasedOnPassive" class="dropdown-item">İlanda olmayan arabalarım</a>
+
+                @if (Model != null)
+                {
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Araba Fotoğrafı</th>
+                                <th>Araba Markası</th>
+                                <th>Araba isim</th>
+                                <th>Fiyat</th>
+                                <th>Süre</th>
+                                <th>Değişiklikler</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td><img style="width:%60;" src="@item.PictureUrl" class="img-thumbnail" /></td>
+                                    <td>@item.Category.Name</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Price</td>
+                                    @if (item.Feature != null && item.Feature.Duration != null)
+                                    {
+                                        <td>@item.Feature.Duration</td>
+                                    }
+                                    else{
+                                        <td>İlan süresi belirtilmemiştir</td>
+                                    }
+                                    
+                                    <td>
+                                        <a asp-controller="Cars" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">İlana al</a>
+                                        <a asp-controller="Cars" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Kaldır</a>
+                                    </td>
+
+
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        Kayıtlı araba bulunamadı
+                    </div>
+                }
+            </div>
+
+
+        </div>
+    </div>
+</div>

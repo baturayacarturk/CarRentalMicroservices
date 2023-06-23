@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Detail";
+}
+
+@model CarViewModel
+
+<script>
+    function validateForm() {
+        var selectedRentDate = document.getElementById("rentDatepicker").value;
+        var selectedLeaveDate = document.getElementById("leaveDatepicker").value;
+        var today = new Date().toISOString().split('T')[0];
+
+        if (selectedRentDate < today) {
+            alert("Geçerli bir kiralama tarihi seçiniz.");
+            return false;
+        }
+
+        if (selectedLeaveDate < today) {
+            alert("Geçerli bir teslim tarihi seçiniz.");
+            return false;
+        }
+
+        if (selectedLeaveDate < selectedRentDate) {
+            alert("Teslim tarihi, kiralama tarihinden önce olamaz.");
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+<div class="row">
+    <div class="col-md-9">
+
+        <div class="card">
+            <img src="@Model.PictureUrl" class="card-img-top" />
+            <div class="card-body">
+                <div class="badge bg-primary">Kategori : @Model.Category.Name</div>
+                <h5 class="card-title">@Model.Name</h5>
+                <p class="card-text"> @Model.Description</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Fiyat : @Model.Price TL</h4>
+                <div>
+                </div>
+                <div class="d-grid">
+                    <form method="post" asp-controller="Basket" asp-action="AddBasketItems" onsubmit="return validateForm()">
+                        <div class="form-group">
+                            <label for="rentDatepicker">Kiralama tarihini seçin:</label>
+                            <input class="form-control" type="date" id="rentDatepicker" name="RentDate" />
+                        </div>
+                        <div class="form-group">
+                            <label for="leaveDatepicker">Teslim tarihini seçin:</label>
+                            <input class="form-control" type="date" id="leaveDatepicker" name="LeaveDate" />
+                        </div>
+                        <input type="hidden" name="carId" value="@Model.Id" />
+                        <button type="submit" class="btn btn-primary">Sepete ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

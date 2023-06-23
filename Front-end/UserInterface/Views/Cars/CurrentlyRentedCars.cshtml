@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model List<CarViewModel>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Kiradaki Araçlarım</h5>
+
+                <a asp-controller="Cars" asp-action="CurrentlyRentedCars"></a>
+
+                @if (Model != null)
+                {
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Araba Fotoğrafı</th>
+                                <th>Araba Markası</th>
+                                <th>Araba İsmi</th>
+                                <th>Fiyat</th>
+                                <th>Kiralanma Tarihi</th>
+                                <th>Kiralama Bitiş Tarihi</th>
+                                <th>Toplam Ödenen Ücret</th>
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td><img style="width:%60;" src="@item.PictureUrl" class="img-thumbnail" /></td>
+                                    <td>@item.Category.Name</td>
+                                    <td>@item.Name</td>
+                                    <td>@item.Price TL</td>
+                                    <td>@item.RentDate</td>
+                                    <td>@item.LeaveDate</td>
+                                    <td>@item.TotalPricePaid TL</td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <div class="alert alert-info">
+                        Kayıtlı araba bulunamadı
+                    </div>
+                }
+            </div>
+
+
+        </div>
+    </div>
+</div>

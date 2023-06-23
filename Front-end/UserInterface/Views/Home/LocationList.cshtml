@@ -1,0 +1,49 @@
+﻿<style>
+    body {
+        background-image: url("/images/background.webp");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .container {
+        margin-top: 90px;
+        text-align: center;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+        width: 70%; /* Dropdown genişliği */
+    }
+</style>
+
+<div class="background-image">
+    <div class="container">
+        <h2>@ViewData["Title"]</h2>
+
+        <form id="locationForm" method="post" action="/Home/Index" class="form-inline">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Şehir Seçiniz
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#" data-value="İstanbul">İstanbul</a>
+                    <a class="dropdown-item" href="#" data-value="Ankara">Ankara</a>
+                    <a class="dropdown-item" href="#" data-value="İzmir">İzmir</a>
+                </div>
+            </div>
+            <input type="hidden" id="selectedLocation" name="selectedLocation" value="" />
+        </form>
+
+        <script>
+            document.querySelectorAll('.dropdown-item').forEach(function (item) {
+                item.addEventListener('click', function () {
+                    var selectedValue = this.getAttribute('data-value');
+                    document.getElementById('selectedLocation').value = selectedValue;
+                    document.getElementById('locationForm').submit();
+                });
+            });
+        </script>
+    </div>
+</div>

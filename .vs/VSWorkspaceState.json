@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Services",
+    "\\Services\\Order",
+    "\\Services\\Order\\CarRental.Services.Order.API",
+    "\\Services\\Payment",
+    "\\Services\\Payment\\CarRental.Services.Payment",
+    "\\Services\\Payment\\CarRental.Services.Payment\\Models"
+  ],
+  "SelectedNode": "\\Services\\Payment\\CarRental.Services.Payment\\Models\\PaymentDto.cs",
+  "PreviewInSolutionExplorer": false
+}

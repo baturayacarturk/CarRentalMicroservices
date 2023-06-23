@@ -1,0 +1,17 @@
+﻿namespace UserInterface.Models.Orders
+{
+    public class OrderCreateInput
+    {
+        public OrderCreateInput()
+        {
+            OrderItems = new List<OrderItemCreateInput>();
+        }
+
+        public string RenterId { get; set; }
+
+        public List<OrderItemCreateInput> OrderItems { get; set; }
+
+        public AddressCreateInput Address { get; set; }
+        public DateTime LeaveDate { get; set; }
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Jo99BRLifcWiHdusCJdf4nL1vGPC/O6REpY/Uo7z6Io=",
+  "Source": "CarRental.Gateway",
+  "BasePath": "_content/CarRental.Gateway",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "rBvNEx3HnaS4ZzA5qdNmxFWbcmpKrbgP/mJEBUsEZ/g=",
+  "Source": "CarRental.Services.Payment",
+  "BasePath": "_content/CarRental.Services.Payment",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
